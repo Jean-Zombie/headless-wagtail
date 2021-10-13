@@ -3,17 +3,16 @@ Base settings to build other settings files upon.
 """
 from pathlib import Path
 
+import dj_database_url
 import os
 import sys
-import dj_database_url
-import environ
 
 ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 # headless_wagtail/
 APPS_DIR = ROOT_DIR / "headless_wagtail"
-env = environ.Env()
 
-# READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
+DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
+# READ_DOT_ENV_FILE = os.getenv("DJANGO_READ_DOT_ENV_FILE", default=False)
 # if READ_DOT_ENV_FILE:
 #     # OS environment variables take precedence over variables from .env
 #     env.read_env(str(ROOT_DIR / ".env"))
@@ -21,7 +20,9 @@ env = environ.Env()
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#debug
-DEBUG = env.bool("DJANGO_DEBUG", False)
+if DEVELOPMENT_MODE:
+    DEBUG = True
+DEBUG = False
 # Local time zone. Choices are
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # though not all of them may be available with every OS.
@@ -43,8 +44,6 @@ LOCALE_PATHS = [str(ROOT_DIR / "locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
-
 if DEVELOPMENT_MODE is True:
     DATABASES = {
         "default": {
@@ -295,7 +294,7 @@ LOGGING = {
 
 # django-allauth
 # ------------------------------------------------------------------------------
-ACCOUNT_ALLOW_REGISTRATION = env.bool("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
+ACCOUNT_ALLOW_REGISTRATION = os.getenv("DJANGO_ACCOUNT_ALLOW_REGISTRATION", True)
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_AUTHENTICATION_METHOD = "username"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
