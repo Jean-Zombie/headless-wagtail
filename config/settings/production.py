@@ -1,10 +1,11 @@
+from django.core.management.utils import get_random_secret_key
 from .base import *  # noqa
 from .base import env
 
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "None")
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
@@ -92,8 +93,8 @@ EMAIL_SUBJECT_PREFIX = env(
 # ADMIN
 # ------------------------------------------------------------------------------
 # Admin URL regex.
-DJANGO_ADMIN_URL = env("DJANGO_ADMIN_URL")
-WAGTAIL_ADMIN_URL = env("WAGTAIL_ADMIN_URL")
+DJANGO_ADMIN_URL = os.getenv("DJANGO_ADMIN_URL", "")
+WAGTAIL_ADMIN_URL = os.getenv("WAGTAIL_ADMIN_URL", "")
 
 # Anymail
 # ------------------------------------------------------------------------------
@@ -104,9 +105,9 @@ INSTALLED_APPS += ["anymail"]  # noqa F405
 # https://anymail.readthedocs.io/en/stable/esps/mailjet/
 EMAIL_BACKEND = "anymail.backends.mailjet.EmailBackend"
 ANYMAIL = {
-    "MAILJET_API_KEY": env("MAILJET_API_KEY"),
-    "MAILJET_SECRET_KEY": env("MAILJET_SECRET_KEY"),
-    "MAILJET_API_URL": env("MAILJET_API_URL", default="https://api.mailjet.com/v3"),
+    # "MAILJET_API_KEY": env("MAILJET_API_KEY"),
+    # "MAILJET_SECRET_KEY": env("MAILJET_SECRET_KEY"),
+    # "MAILJET_API_URL": env("MAILJET_API_URL", default="https://api.mailjet.com/v3"),
 }
 
 
