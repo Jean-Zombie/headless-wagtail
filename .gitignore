@@ -307,3 +307,4 @@ setup.cfg
 .editorconfig
 .env
 .gitattributes
+local.py
