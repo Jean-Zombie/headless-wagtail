@@ -1,3 +1,4 @@
+from .api import api_router
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -23,7 +24,7 @@ urlpatterns = [
     path("users/", include("headless_wagtail.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # API base url
-    path("api/", include("config.api_router")),
+    path("api/v2/", api_router.urls),
     # DRF auth token
     path("auth-token/", obtain_auth_token),
     # Your stuff: custom urls includes go here
