@@ -1,5 +1,3 @@
-{% load render_bundle from webpack_loader %}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,15 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>My awesome Vue app</title>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/tachyons/css/tachyons.min.css"
-    />
-    {% render_bundle 'app' 'css' %}
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
-    {% render_bundle 'app' 'js' %}
   </body>
 </html>
