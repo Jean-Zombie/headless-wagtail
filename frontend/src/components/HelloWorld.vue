@@ -23,16 +23,11 @@
       </v-col>
 
       <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-3">What's next?</h2>
+        <h2 class="headline font-weight-bold">What's next?</h2>
         <v-row justify="center" v-for="(item, i) in news" :key="i">
-          <h2>{{ item.title }}</h2>
-          <v-img
-          contain
-            v-if="item.image_thumbnail"
-            :src="'http://127.0.0.1:8000' + item.image_thumbnail.url"
-            :width="item.image_thumbnail.width"
-            :height="item.image_thumbnail.height"
-          ></v-img>
+          <router-link class="" :to="/news/+ item.id">
+            <h2>{{ item.title }}</h2>
+          </router-link>
         </v-row>
       </v-col>
     </v-row>
