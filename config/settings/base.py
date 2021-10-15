@@ -325,19 +325,11 @@ REST_FRAMEWORK = {
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
 # CORS_URLS_REGEX = r"^/api/v2/.*$"
 CORS_ALLOWED_ORIGINS = [
-    "https://example.com",
-    "https://sub.example.com",
-    "http://localhost:8080",
+    "https://headless-wagtail-giinn.ondigitalocean.app",
     "http://localhost:8000",
-    "http://localhost:8001",
-    "http://127.0.0.1:9000",
-    "http://127.0.0.1:8000",
-    "http://127.0.0.1:8080",
-    "http://127.0.0.1:8001",
-    "http://127.0.0.1:3000",
-    "http://localhost:3000",
+
 ]
-CORS_ALLOW_ALL_ORIGINS: True
+# CORS_ALLOW_ALL_ORIGINS: True
 
 # Your stuff...
 WAGTAIL_SITE_NAME = "headless_wagtail"
