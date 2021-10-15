@@ -34,3 +34,4 @@ django-cors-headers==3.8.0 # https://github.com/adamchainz/django-cors-headers
 # Wagtail
 # ------------------------------------------------------------------------------
 wagtail==2.14.1  # https://github.com/wagtail/wagtail
+wagtail-headless-preview
