@@ -18,7 +18,9 @@
 </template>
 
 <script>
-const API_ROOT = "http://127.0.0.1:8000/api/v2/pages/";
+import { APIService } from "../APIService.js"
+const apiService = new APIService()
+
 export default {
   name: "NewsItem",
 
@@ -27,9 +29,9 @@ export default {
   }),
   methods: {
           async getNews() {
-            let response = await fetch(API_ROOT + this.$route.params.id + "/")
-              .then((response) => (response.json()));
-              this.news = response;
+            let response = await apiService.getPages(this.$route.params.id + "/")
+              .then((response) => (this.news = response));
+              ;
           },
         },
         mounted() {
