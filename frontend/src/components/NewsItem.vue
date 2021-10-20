@@ -11,15 +11,14 @@
           :height="news.image_thumbnail.height"
         ></v-img>
         <p v-html="news.body"></p>
-         <router-link to="/">Home</router-link>
+        <router-link to="/">Home</router-link>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import { APIService } from "../APIService.js"
-const apiService = new APIService()
+import axios from "axios";
 
 export default {
   name: "NewsItem",
@@ -28,19 +27,23 @@ export default {
     news: {},
   }),
   methods: {
-          async getNews() {
-            let response = await apiService.getPages(this.$route.params.id + "/")
-              .then((response) => (this.news = response));
-              ;
-          },
-        },
-        mounted() {
-          this.getNews();
-        },
-        watch: {
-          $route(to, from) {
-            this.getNews();
-          },
-        },
+    async getNews() {
+      const API_ROOT = process.env.API_URL;
+      let query = this.$route.params.id + "/";
+      const url = `${API_ROOT}/pages/${query}`;
+
+      let response = await axios
+        .get(url)
+        .then((response) => (this.news = response.data));
+    },
+  },
+  mounted() {
+    this.getNews();
+  },
+  watch: {
+    $route(to, from) {
+      this.getNews();
+    },
+  },
 };
 </script>

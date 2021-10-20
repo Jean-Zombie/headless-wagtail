@@ -14,7 +14,6 @@ module.exports = env => {
     },
     plugins: [
       new BundleTracker({ filename: "./webpack-stats.json" }),
-      new CleanWebpackPlugin(),
       new VueLoaderPlugin(),
       new VuetifyLoaderPlugin({ progressiveImages: true }),
       new Dotenv({
