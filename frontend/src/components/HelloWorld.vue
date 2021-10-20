@@ -35,8 +35,7 @@
 </template>
 
 <script>
-import { APIService } from "../APIService.js";
-const apiService = new APIService();
+import axios from "axios";
 
 export default {
   name: "HelloWorld",
@@ -45,9 +44,12 @@ export default {
     news: {},
   }),
   async mounted() {
-    let response = await apiService
-      .getPages("?type=news.NewsPage&fields=intro,body,date,image_thumbnail")
-      .then((response) => (this.news = response.items));
+    const url =
+      "http://127.0.0.1:8000/api/v2/pages/?type=news.NewsPage&fields=intro,body,date,image_thumbnail";
+    let response = await axios
+      .get(url)
+      .then((response) => response.data)
+      .then((jsondata) => (this.news = jsondata.items));
   },
 };
 </script>

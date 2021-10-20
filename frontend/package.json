@@ -4,8 +4,8 @@
   "description": "",
   "author": "",
   "scripts": {
-    "build": "webpack --env enviroment=production --mode production",
-    "start": "webpack-dev-server --env enviroment=development --mode development",
+    "build": "webpack --env public_path='/static/dist/' --env file_name='[name].[hash].bundle.js' --mode production",
+    "start": "webpack-dev-server --env public_path='http://localhost:3000/static/dist/' --env file_name='[name].js' --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
