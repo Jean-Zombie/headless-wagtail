@@ -25,7 +25,7 @@
       <v-col class="mb-5" cols="12">
         <h2 class="headline font-weight-bold">What's next?</h2>
         <v-row justify="center" v-for="(item, i) in news" :key="i">
-          <router-link class="" :to="/news/ + item.id">
+          <router-link class="" :to="/news/+ item.id">
             <h2>{{ item.title }}</h2>
           </router-link>
         </v-row>
@@ -35,8 +35,7 @@
 </template>
 
 <script>
-import { APIService } from "../APIService.js";
-const apiService = new APIService();
+const API_ROOT = "http://127.0.0.1:8000/api/v2/pages/";
 
 export default {
   name: "HelloWorld",
@@ -45,9 +44,10 @@ export default {
     news: {},
   }),
   async mounted() {
-    let response = await apiService
-      .getPages("?type=news.NewsPage&fields=intro,body,date,image_thumbnail")
-      .then((response) => (this.news = response.items));
+    let response = await fetch(
+      API_ROOT + "?type=news.NewsPage&fields=intro,body,date,image_thumbnail"
+    ).then((response) => response.json());
+    this.news = response.items;
   },
 };
 </script>
