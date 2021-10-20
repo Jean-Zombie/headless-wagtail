@@ -44,8 +44,10 @@ export default {
     news: {},
   }),
   async mounted() {
-    const url =
-      "http://127.0.0.1:8000/api/v2/pages/?type=news.NewsPage&fields=intro,body,date,image_thumbnail";
+    const API_ROOT = process.env.API_URL
+    let query = "?type=news.NewsPage&fields=intro,body,date,image_thumbnail"
+    const url = `${API_ROOT}/pages/${query}`;
+    
     let response = await axios
       .get(url)
       .then((response) => response.data)
