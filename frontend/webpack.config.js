@@ -21,6 +21,7 @@ module.exports = {
     new VueLoaderPlugin(),
     new VuetifyLoaderPlugin({ progressiveImages: true }),
     new Dotenv({
+      systemvars: true,
     })
   ],
   optimization: {
