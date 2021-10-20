@@ -1,26 +1,26 @@
 {
   "status": "done",
   "assets": {
-    "app.5b9015a993f386f3d21f.bundle.js": {
-      "name": "app.5b9015a993f386f3d21f.bundle.js",
-      "path": "/Users/ronald/Documents/Development/Django/digital_ocean_app_headless_wagtail/headless_wagtail/frontend/dist/app.5b9015a993f386f3d21f.bundle.js",
-      "publicPath": "/static/dist/app.5b9015a993f386f3d21f.bundle.js"
+    "app.abdae78ced85e297842e.bundle.js": {
+      "name": "app.abdae78ced85e297842e.bundle.js",
+      "path": "/Users/ronald/Documents/Development/Django/digital_ocean_app_headless_wagtail/headless_wagtail/frontend/dist/app.abdae78ced85e297842e.bundle.js",
+      "publicPath": "/static/dist/app.abdae78ced85e297842e.bundle.js"
     },
-    "vendor.5b9015a993f386f3d21f.bundle.js": {
-      "name": "vendor.5b9015a993f386f3d21f.bundle.js",
-      "path": "/Users/ronald/Documents/Development/Django/digital_ocean_app_headless_wagtail/headless_wagtail/frontend/dist/vendor.5b9015a993f386f3d21f.bundle.js",
-      "publicPath": "/static/dist/vendor.5b9015a993f386f3d21f.bundle.js"
+    "vendor.abdae78ced85e297842e.bundle.js": {
+      "name": "vendor.abdae78ced85e297842e.bundle.js",
+      "path": "/Users/ronald/Documents/Development/Django/digital_ocean_app_headless_wagtail/headless_wagtail/frontend/dist/vendor.abdae78ced85e297842e.bundle.js",
+      "publicPath": "/static/dist/vendor.abdae78ced85e297842e.bundle.js"
     },
-    "vendor.5b9015a993f386f3d21f.bundle.js.LICENSE.txt": {
-      "name": "vendor.5b9015a993f386f3d21f.bundle.js.LICENSE.txt",
-      "path": "/Users/ronald/Documents/Development/Django/digital_ocean_app_headless_wagtail/headless_wagtail/frontend/dist/vendor.5b9015a993f386f3d21f.bundle.js.LICENSE.txt",
-      "publicPath": "/static/dist/vendor.5b9015a993f386f3d21f.bundle.js.LICENSE.txt"
+    "vendor.abdae78ced85e297842e.bundle.js.LICENSE.txt": {
+      "name": "vendor.abdae78ced85e297842e.bundle.js.LICENSE.txt",
+      "path": "/Users/ronald/Documents/Development/Django/digital_ocean_app_headless_wagtail/headless_wagtail/frontend/dist/vendor.abdae78ced85e297842e.bundle.js.LICENSE.txt",
+      "publicPath": "/static/dist/vendor.abdae78ced85e297842e.bundle.js.LICENSE.txt"
     }
   },
   "chunks": {
     "app": [
-      "vendor.5b9015a993f386f3d21f.bundle.js",
-      "app.5b9015a993f386f3d21f.bundle.js"
+      "vendor.abdae78ced85e297842e.bundle.js",
+      "app.abdae78ced85e297842e.bundle.js"
     ]
   },
   "publicPath": "/static/dist/"

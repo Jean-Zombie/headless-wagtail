@@ -1,11 +1,18 @@
-import axios from "axios";
-// const API_ROOT = "http://127.0.0.1:8000/api/v2";
-const API_ROOT = "https://headless-wagtail-giinn.ondigitalocean.app/api/v2";
+import axios from "axios"
 
 export class APIService {
-  constructor() {}
-  async getPages(query) {
-    const url = `${API_ROOT}/pages/${query}`;
-    return axios.get(url).then(response => response.data);
+  constructor() {
+    if (process.env.DEVELOPMENT) {
+        console.log("Development mode: local API URL is used.");
+        this.apiRoot = process.env.API_URL_DEVELOPMENT
+    }
+    else {
+      this.apiRoot = process.env.API_URL_PRODUCTION
+    }
   }
-}
+  async getPages(query) {
+        // const API_ROOT = "http://127.0.0.1:8000/api/v2";
+        const url = `${this.apiRoot}/pages/${query}`;
+        return axios.get(url).then(response => response.data);
+    };
+  }

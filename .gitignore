@@ -308,3 +308,4 @@ setup.cfg
 .env
 .gitattributes
 local.py
+frontend/src/.env.defaults

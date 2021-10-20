@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const path = require("path");
 const DEST_FOLDER = "dist";
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: "production",
@@ -18,7 +19,9 @@ module.exports = {
     new BundleTracker({ filename: "./webpack-stats.json" }),
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
-    new VuetifyLoaderPlugin({ progressiveImages: true })
+    new VuetifyLoaderPlugin({ progressiveImages: true }),
+    new Dotenv({
+    })
   ],
   optimization: {
     splitChunks: {
