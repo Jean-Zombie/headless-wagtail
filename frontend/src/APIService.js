@@ -1,5 +1,6 @@
 import axios from "axios";
-const API_ROOT = "http://127.0.0.1:8000/api/v2";
+// const API_ROOT = "http://127.0.0.1:8000/api/v2";
+const API_ROOT = "https://headless-wagtail-giinn.ondigitalocean.app/api/v2";
 
 export class APIService {
   constructor() {}
